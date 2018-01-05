@@ -2,13 +2,13 @@ class Udffsck < Formula
   desc "Repair-enabled fsck for UDF (from Linux udftools)"
   homepage "https://github.com/pali/udftools"
 
-  head do
-    url "https://github.com/gmerlino/udftools.git"
+  head "https://github.com/gmerlino/udftools.git"
 
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
+
+  conflicts_with "udftools", :because => "both install `udffsck` binary"
 
   def install
     if build.head?
